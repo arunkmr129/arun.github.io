@@ -1,106 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Android Developer Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arun Kumar | Android Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f4f4f4;
+      background-color: #f9f9f9;
       color: #333;
     }
     header {
-      background-color: #2196F3;
+      background-color: #1565C0;
       color: white;
       padding: 2rem;
       text-align: center;
+    }
+    header h1 {
+      margin-bottom: 0.2rem;
+    }
+    header p {
+      margin: 0.3rem 0;
+    }
+    a {
+      color: #BBDEFB;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
     section {
       padding: 2rem;
-      max-width: 900px;
+      max-width: 960px;
       margin: auto;
     }
     h2 {
-      color: #2196F3;
+      color: #1565C0;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
     }
-    .projects, .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    ul {
+      padding-left: 1.2rem;
     }
-    .project, .skill {
+    .project, .job {
+      margin-bottom: 1.5rem;
       background: white;
       padding: 1rem;
-      border-radius: 5px;
-      flex: 1 1 250px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
     footer {
-      background-color: #333;
-      color: white;
       text-align: center;
       padding: 1rem;
-    }
-    a {
-      color: #2196F3;
+      background-color: #333;
+      color: white;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Your Name</h1>
-  <p>Android Developer | Kotlin & Java | Clean Architecture Enthusiast</p>
+  <h1>Arun Kumar</h1>
+  <p><strong>Android Developer</strong></p>
+  <p>Email: <a href="mailto:arunbhardwaj129@gmail.com">arunbhardwaj129@gmail.com</a> | 📞 +91-8887679946</p>
+  <p>📍 Noida, Uttar Pradesh, India | <a href="https://www.linkedin.com/in/arun-kmr" target="_blank">LinkedIn: /arun-kmr</a></p>
 </header>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I am a passionate Android developer with experience in building high-performance, scalable mobile apps using Kotlin and Java. I focus on clean code, architecture patterns like MVVM, and modern Android development practices.</p>
+<section>
+  <h2>Professional Summary</h2>
+  <p>Experienced and results-driven Android Developer with 5+ years of hands-on experience in architecting, developing, and launching robust Android applications, particularly in the OTT domain across Android TV, Fire TV, and Flutter platforms. Adept at writing efficient, clean, and scalable code, integrating third-party SDKs, and solving performance issues across complex devices. Proven ability to deliver engaging mobile and TV experiences to millions of users.</p>
 </section>
 
-<section id="projects">
+<section>
+  <h2>Skills & Technologies</h2>
+  <ul>
+    <li><strong>Languages:</strong> Java, Kotlin, Dart, XML</li>
+    <li><strong>Frameworks & Libraries:</strong> Android SDK, Flutter, Jetpack (Navigation, Lifecycle, ViewModel), Firebase, Retrofit, ExoPlayer</li>
+    <li><strong>Tools & Platforms:</strong> Android Studio, Visual Studio Code, Git, JIRA, Bitbucket, Firebase Console</li>
+    <li><strong>Devices & Platforms:</strong> Android, Android TV, Fire TV, OTT Streaming Platforms</li>
+    <li><strong>Databases:</strong> Room, Realm, SQLite</li>
+    <li><strong>Architectures:</strong> MVC, MVP, MVVM, Clean Architecture</li>
+    <li><strong>Testing:</strong> JUnit, Espresso, Mockito, Android Debug Bridge (ADB)</li>
+    <li><strong>Others:</strong> RESTful APIs, Push Notifications, Google Analytics, Segment, Video Streaming Integration, Media Controls</li>
+    <li><strong>Deployment:</strong> Google Play Store, Amazon Appstore (Fire TV), Android TV Play Store</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Work Experience</h2>
+
+  <div class="job">
+    <h3>Android Developer – Fusioni Technologies Pvt. Ltd. | Noida</h3>
+    <p><em>Feb 2020 – Present</em></p>
+    <ul>
+      <li>Led end-to-end development for OTT applications across Android Mobile, Android TV, Fire TV, and Flutter-based cross-platform apps.</li>
+      <li>Designed dynamic, adaptive UI/UX layouts compatible with mobile and large-screen devices, including voice navigation and remote control features for TV apps.</li>
+      <li>Integrated and optimized video playback engines using ExoPlayer and VLC Player for high-performance streaming under various network conditions.</li>
+      <li>Reduced development time by 30% by adopting Flutter for shared codebases across Android and iOS.</li>
+      <li>Regularly collaborated with product managers and testers to refine features, fix bugs, and enhance app stability using real-time crash reporting and analytics.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3>Software Engineer Trainee – Appventurez | Noida</h3>
+    <p><em>Jul 2019 – Oct 2019</em></p>
+    <ul>
+      <li>Worked on Android app components focusing on UI design, data persistence, and API integration.</li>
+      <li>Contributed to bug fixing, code reviews, and basic test case implementations for new features.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
   <h2>Projects</h2>
-  <div class="projects">
-    <div class="project">
-      <h3>WeatherMate App</h3>
-      <p>An Android app that displays real-time weather using Retrofit and Jetpack Compose. Implements MVVM and Room DB for caching.</p>
-      <a href="https://github.com/yourusername/weathermate" target="_blank">GitHub Repo</a>
-    </div>
-    <div class="project">
-      <h3>TaskPlanner</h3>
-      <p>A to-do planner with notifications and Material UI, built with Kotlin Coroutines and LiveData.</p>
-      <a href="https://github.com/yourusername/taskplanner" target="_blank">GitHub Repo</a>
-    </div>
+
+  <div class="project">
+    <h3>FOX 13 Memphis</h3>
+    <p>A feature-rich news application delivering articles, video, weather, and audio updates with push notifications and content saving options.</p>
+    <p><strong>Tech Used:</strong> Java, Android SDK, FreeStar Ads, Google AdMob, Google Analytics, In-App Purchases, Deep Linking</p>
+  </div>
+
+  <div class="project">
+    <h3>Pantagraph</h3>
+    <p>Live news and weather app with personalized alerts, category filtering, and integrated analytics for content engagement tracking.</p>
+    <p><strong>Tech Used:</strong> Kotlin, Java, Exoplayer, Segment, Google Analytics, Room</p>
+  </div>
+
+  <div class="project">
+    <h3>KAVU Crossroads Today+</h3>
+    <p>Android TV application for local live news and on-demand video, optimized for Leanback interface and remote control navigation.</p>
+    <p><strong>Tech Used:</strong> Java, Leanback Library, Exoplayer, IMA SDK, Retrofit, SQLite</p>
+  </div>
+
+  <div class="project">
+    <h3>BLOX SDK</h3>
+    <p>SDK solution to ease integration for developers building TV and mobile apps. Supported user authentication and data synchronization across screens.</p>
+    <p><strong>Tech Used:</strong> Kotlin, Android SDK, Firebase, Retrofit</p>
+  </div>
+
+  <div class="project">
+    <h3>CloudCast</h3>
+    <p>Flutter-based platform for community video streaming and topic-based content curation with push notifications and subscription modules.</p>
+    <p><strong>Tech Used:</strong> Dart, Flutter SDK, InAppWebView, SQLite, Push Notification Services</p>
   </div>
 </section>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills">
-    <div class="skill">Kotlin</div>
-    <div class="skill">Java</div>
-    <div class="skill">Jetpack Compose</div>
-    <div class="skill">MVVM / Clean Architecture</div>
-    <div class="skill">Room / Retrofit / Hilt</div>
-    <div class="skill">Firebase</div>
-    <div class="skill">Play Store Deployment</div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">yourprofile</a></p>
-  <p>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+<section>
+  <h2>Education</h2>
+  <p><strong>Master of Computer Applications (MCA)</strong><br>
+  Harcourt Butler Technical University, Kanpur (UP), India<br>
+  <em>Graduated: 2019</em></p>
 </section>
 
 <footer>
-  <p>&copy; 2025 Your Name. All rights reserved.</p>
+  <p>&copy; 2025 Arun Kumar. All rights reserved.</p>
 </footer>
 
 </body>
