@@ -95,8 +95,14 @@
         <div class="bg-light-gray padding-100px-top">
             <div class="container">
                 <div class="row align-items-center">
-                    <!-- Left Column: Text -->
-                    <div class="col-md-7 col-sm-12 order-2 order-md-1 xs-padding-50px-tb">
+                    
+                    <!-- Left Column: Image (moved here) -->
+                    <div class="col-md-5 col-sm-12 order-1 order-md-1 text-left xs-text-center xs-border-bottom xs-padding-nineteen-half-lr border-color-medium-gray">
+                        <img src="assets/profile.jpg" alt="Arun Kumar - Android Developer" class="img-fluid rounded-circle" />
+                    </div>
+        
+                    <!-- Right Column: Text (now comes second) -->
+                    <div class="col-md-7 col-sm-12 order-2 order-md-2 xs-padding-50px-tb">
                         <div class="padding-twenty-top sm-padding-fifteen-top xs-no-padding">
                             <h5 class="no-margin font-size18 xs-font-size16 text-medium-gray padding-twelve-top sm-padding-five-top xs-no-padding">Hello, I am</h5>
                             <h1 class="text-uppercase font-size48 md-font-size42 sm-font-size36 xs-font-size26 font-weight-700 margin-20px-bottom">Arun Kumar</h1>
@@ -115,13 +121,10 @@
                         </div>
                     </div>
         
-                    <!-- Right Column: Image -->
-                    <div class="col-md-5 col-sm-12 order-1 order-md-2 text-right xs-text-center xs-border-bottom xs-padding-nineteen-half-lr border-color-medium-gray">
-                        <img src="assets/profile.jpg" alt="Arun Kumar - Android Developer" />
-                    </div>
                 </div>
             </div>
         </div>
+        
         
         <!-- End Banner Container -->
 
@@ -634,7 +637,10 @@
             <div class="row">
                 <!-- start get in touch -->
                 <div class="col-lg-12">
-                    <form method="post" action="bat/rd-mailform.php" class="mailform off2">
+                    <form id="myForm" enctype="multipart/form-data">
+
+                    <!-- <form method="post" action="bat/rd-mailform.php" class="mailform off2"> -->
+                        
                         <input type="hidden" name="form-type" value="contact">
                         <div class="row">
                             <div class="col-md-6">
@@ -677,7 +683,7 @@
                         <span class="icon font-size32"><i class="icon-map"></i></span>
                         <div class="cont">
                             <h6>Address</h6>
-                            <p>Lucknow, Uttar Pradesh, India</p>
+                            <p>Noida, Uttar Pradesh, India</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 item text-center">
@@ -713,6 +719,29 @@
         </div>
     </footer>
     
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (e) {
+          e.preventDefault(); // Prevent normal form submission
+        
+          const form = e.target;
+          const formData = new FormData(form); // Automatically collects all input fields
+        
+          fetch('/your-endpoint-url', {
+            method: 'POST',
+            body: formData,
+          })
+            .then(response => response.json())
+            .then(data => {
+              console.log('Success:', data);
+              // Optionally update the UI here
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        });
+        </script>
+
     <!-- End Footer Section -->
 
     <!-- all js include start -->
