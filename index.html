@@ -638,32 +638,30 @@
                 <!-- start get in touch -->
                 <div class="col-lg-12">
                     <form id="myForm" enctype="multipart/form-data">
-
-                    <!-- <form method="post" action="bat/rd-mailform.php" class="mailform off2"> -->
-                        
-                        <input type="hidden" name="form-type" value="contact">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="name" placeholder="Your Name:" data-constraints="@LettersOnly @NotEmpty">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" name="phone" placeholder="Telephone:" data-constraints="@Phone">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" name="email" placeholder="Email:" data-constraints="@Email @NotEmpty">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" name="subject" placeholder="Subject:" data-constraints="@NotEmpty">
-                            </div>                                
-                            <div class="col-md-12">
-                                <textarea name="message" rows="5" placeholder="Message:" data-constraints="@NotEmpty"></textarea>
-                            </div>
-                            <div class="mfControls col-md-12 text-center">
-                                <button type="submit" class="btn white">Send Message</button>
-                            </div>
+                      <input type="hidden" name="form-type" value="contact">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="text" name="name" placeholder="Your Name:" data-constraints="@LettersOnly @NotEmpty">
                         </div>
+                        <div class="col-md-6">
+                          <input type="text" name="phone" placeholder="Telephone:" data-constraints="@Phone">
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" name="email" placeholder="Email:" data-constraints="@Email @NotEmpty">
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" name="subject" placeholder="Subject:" data-constraints="@NotEmpty">
+                        </div>
+                        <div class="col-md-12">
+                          <textarea name="message" rows="5" placeholder="Message:" data-constraints="@NotEmpty"></textarea>
+                        </div>
+                        <div class="mfControls col-md-12 text-center">
+                          <button type="submit" class="btn white">Send Message</button>
+                          <div class="loader" id="formLoader"></div>
+                        </div>
+                      </div>
                     </form>
-                </div>
+                  </div>
                 <!-- end get in touch -->
             </div>
         </div>
@@ -721,26 +719,78 @@
     
 
     <script>
-        document.getElementById('myForm').addEventListener('submit', function (e) {
-          e.preventDefault(); // Prevent normal form submission
-        
-          const form = e.target;
-          const formData = new FormData(form); // Automatically collects all input fields
-        
-          fetch('/your-endpoint-url', {
-            method: 'POST',
-            body: formData,
-          })
-            .then(response => response.json())
-            .then(data => {
-              console.log('Success:', data);
-              // Optionally update the UI here
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
-        });
-        </script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxW4ynRUm4A8wqLZIDosBTnV4qHS_7uo20a0XMCivG6Xax9QuztAmDuwbsPFhTECTU3Jg/exec'; // Use your real web app URL
+        const form = document.getElementById('myForm');
+  const loader = document.getElementById('formLoader');
+
+  function validateField(field) {
+    const value = field.value.trim();
+    const constraints = (field.dataset.constraints || "").split(" ");
+
+    for (let constraint of constraints) {
+      switch (constraint) {
+        case "@NotEmpty":
+          if (!value) return `${field.name} cannot be empty.`;
+          break;
+        case "@Email":
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(value)) return `Invalid email address.`;
+          break;
+        case "@Phone":
+          const phoneRegex = /^[0-9\-\+\s\(\)]{7,15}$/;
+          if (!phoneRegex.test(value)) return `Invalid phone number.`;
+          break;
+        case "@LettersOnly":
+          const letterRegex = /^[A-Za-z\s]+$/;
+          if (!letterRegex.test(value)) return `Only letters allowed in name.`;
+          break;
+      }
+    }
+    return null;
+  }
+
+  function validateForm(form) {
+    const fields = form.querySelectorAll("[data-constraints]");
+    for (let field of fields) {
+      const error = validateField(field);
+      if (error) {
+        alert(error);
+        field.focus();
+        return false;
+      }
+    }
+    return true;
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    if (!validateForm(form)) return;
+
+    const formData = new FormData(form);
+    loader.style.display = "inline-block";
+
+    fetch(scriptURL, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+    loader.style.display = "none";
+      alert('Message sent successfully!');
+      form.reset();
+    })
+    .catch(error => {
+    loader.style.display = "none";
+      alert('Something went wrong!');
+      console.error('Error!', error.message);
+    })
+    .finally(() => {
+      loader.style.display = "none";
+    });
+  });
+      </script>
+      
+      
 
     <!-- End Footer Section -->
 
